@@ -1,0 +1,15 @@
+{% extends 'shablon.html' %}
+{% block title %}Форма нового url-а{% endblock title %}
+{% block content %}
+<form action="" method="post" novalidate class="row g-2">
+        {{form.csrf_token}}
+        {{form.url.label}} {{form.url(class="form-control")}}
+        {{form.submit(class="btn btn-primary")}}
+        {% for error in form.url.errors %}
+        <div class="alert alert-danger" role="alert">
+          <span>{{ error }}</span>
+        </div>
+        {% endfor %}
+      </form>
+
+{% endblock content %}
